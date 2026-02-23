@@ -1,7 +1,7 @@
  import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
-import "swiper/css";
+
 
 import img1 from "../assets/megapack.jpg";   // Megapack
 import img2 from "../assets/powerwall.jpg";   // Powerwall

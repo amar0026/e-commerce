@@ -6,10 +6,9 @@ import {
 } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, } from "swiper/modules";
 
-import "swiper/css";
-import "swiper/css/navigation";
+
 
 import car1 from "../assets/images (15).jpg";
 import car2 from "../assets/images (14).jpg";
