@@ -1,11 +1,9 @@
- import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
-// import "swiper/css";
-
-import img1 from "../assets/megapack.jpg";   // Megapack
-import img2 from "../assets/powerwall.jpg";   // Powerwall
-import img3 from "../assets/solarroof.webp";   // Solar Roof
+import img1 from "../assets/megapack.jpg";
+import img2 from "../assets/powerwall.jpg";
+import img3 from "../assets/solarroof.webp";
 import logo from "../assets/teslalogo.png";
 
 export default function Card() {
@@ -35,7 +33,7 @@ export default function Card() {
       image: img1,
       points: ["Grid-Scale", "Scalable", "High-Capacity"],
     },
-      { 
+    { 
       name: "Powerwall",
       subtitle: "Keep Your Lights On During Outages",
       image: img2,
@@ -52,77 +50,69 @@ export default function Card() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-10">
       <div className="max-w-6xl w-full">
-
         <Swiper
           modules={[Autoplay]}
           slidesPerView={3}
           spaceBetween={30}
           loop={true}
-          freeMode={true}
-          speed={5000}
           autoplay={{
-            delay: 0,
+            delay: 3000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           breakpoints={{
             0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          className="continuousSwiper"
+          className="mySwiper"
         >
-
-          {products.map((item, index) => (
+          {products.map((product, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-2xl shadow-md p-4 hover:shadow-xl transition duration-300 border border-gray-200">
-
+              <div className="bg-white rounded-2xl shadow-md p-4 hover:shadow-xl hover:-translate-y-2 transition duration-300">
+                
                 {/* Header */}
-                <div className="flex items-center gap-3 mb-3">
-                  <img 
-                    src={logo} 
-                    alt="Tesla Logo" 
-                    className="h-6"
-                  />
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="bg-black p-3 rounded-xl">
+                    <img
+                      src={logo}
+                      alt="logo"
+                      className="h-10 w-10 object-contain"
+                    />
+                  </div>
                   <div>
-                    <h2 className="text-lg font-semibold text-[#0b1220]">
-                      {item.name}
+                    <h2 className="text-xl font-bold text-[#0b1220]">
+                      {product.name}
                     </h2>
-                    <p className="text-gray-500 text-xs">
-                      {item.subtitle}
+                    <p className="text-gray-500 text-sm">
+                      {product.subtitle}
                     </p>
                   </div>
                 </div>
 
-                {/* Image */}
+                {/* Product Image */}
                 <img
-                  src={item.image}
-                  alt={item.name}
-                  className="rounded-xl mb-4 w-full h-48 object-cover"
+                  src={product.image}
+                  className="rounded-xl mb-4 w-full h-56 object-cover"
+                  alt={product.name}
                 />
 
-                {/* Feature Box */}
-                <div className="bg-[#0b1220] text-white rounded-2xl p-6 mb-4">
-                  <ul className="space-y-2">
-                    {item.points.map((point, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <span className="w-2 h-2 bg-white rounded-full"></span>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+                {/* Points / Specs */}
+                <div className="bg-[#0b1220] text-white rounded-2xl p-6 flex justify-around items-center mb-4">
+                  {product.points.map((point, i) => (
+                    <div key={i} className="flex flex-col items-center">
+                      <p className="text-sm font-semibold">{point}</p>
+                    </div>
+                  ))}
                 </div>
 
-                {/* Button */}
                 <button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2 rounded-xl transition">
                   SEE DETAILS
                 </button>
-
               </div>
             </SwiperSlide>
           ))}
-
         </Swiper>
-
       </div>
     </div>
   );

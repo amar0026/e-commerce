@@ -6,18 +6,18 @@ import {
 } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/navigation";
 
+// You'll need to add these images to your public folder or src/assets
+// For now, let's use placeholder images
 import car1 from "../assets/images (15).jpg";
 import car2 from "../assets/images (14).jpg";
 import car3 from "../assets/images (16).jpg";
-import logo from "../assets/teslalogo.png"; // 👈 add logo
+import logo from "../assets/teslalogo.png";
 
 export default function Card() {
-
   const cars = [
     { 
       name: "Lamborghini Urus",
@@ -58,7 +58,7 @@ export default function Card() {
       gear: "Auto", 
       price: "AED 1,900,000" 
     },
-     { 
+    { 
       name: "Lamborghini Urus",
       year: "2024",
       type: "SUV",
@@ -102,31 +102,27 @@ export default function Card() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-10">
       <div className="max-w-6xl w-full">
-
         <Swiper
-           modules={[Autoplay]}
+          modules={[Autoplay]}
           slidesPerView={3}
           spaceBetween={30}
           loop={true}
-          freeMode={true}
-          speed={5000}
           autoplay={{
-            delay: 0,
+            delay: 3000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true, // This stops autoplay on hover
           }}
           breakpoints={{
             0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          className="continuousSwiper"
+          className="mySwiper"
         >
-
           {cars.map((car, index) => (
             <SwiperSlide key={index}>
               <div className="bg-white rounded-2xl shadow-md p-4 hover:shadow-xl hover:-translate-y-2 transition duration-300">
-
-                {/* 🔥 Header Section */}
+                {/* Header Section */}
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-black p-3 rounded-xl">
                     <img 
@@ -155,10 +151,9 @@ export default function Card() {
 
                 {/* Specs */}
                 <div className="bg-[#0b1220] text-white rounded-2xl p-6 flex justify-between items-center mb-4">
-                  
                   <div className="flex flex-col items-center">
                     <FaTachometerAlt size={18}/>
-                    <p className="mt-2 text-sm">{car.speed}</p>
+                    <p className="mt-2 text-sm">{car.speed} mph</p>
                   </div>
 
                   <div className="flex flex-col items-center">
@@ -185,13 +180,10 @@ export default function Card() {
                 <button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2 rounded-xl transition">
                   SEE DETAILS
                 </button>
-
               </div>
             </SwiperSlide>
           ))}
-
         </Swiper>
-
       </div>
     </div>
   );
