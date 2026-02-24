@@ -9,37 +9,37 @@ import logo from "../assets/teslalogo.png";
 export default function Card() {
 
   const products = [
-    { 
+    {
       name: "Megapack",
       subtitle: "Massive Batteries For Massive Energy Support",
       image: img1,
       points: ["Grid-Scale", "Scalable", "High-Capacity"],
     },
-    { 
+    {
       name: "Powerwall",
       subtitle: "Keep Your Lights On During Outages",
       image: img2,
       points: ["13.5 kWh", "Power", "App"],
     },
-    { 
+    {
       name: "Solar Roof",
       subtitle: "Generate Clean Energy With Your Roof",
       image: img3,
       points: ["Grid-Scale", "Scalable", "High-Capacity"],
     },
-    { 
+    {
       name: "Megapack",
       subtitle: "Massive Batteries For Massive Energy Support",
       image: img1,
       points: ["Grid-Scale", "Scalable", "High-Capacity"],
     },
-    { 
+    {
       name: "Powerwall",
       subtitle: "Keep Your Lights On During Outages",
       image: img2,
       points: ["13.5 kWh", "Power", "App"],
     },
-    { 
+    {
       name: "Solar Roof",
       subtitle: "Generate Clean Energy With Your Roof",
       image: img3,
@@ -70,7 +70,7 @@ export default function Card() {
           {products.map((product, index) => (
             <SwiperSlide key={index}>
               <div className="bg-white rounded-2xl shadow-md p-4 hover:shadow-xl hover:-translate-y-2 transition duration-300">
-                
+
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-black p-3 rounded-xl">
@@ -105,9 +105,19 @@ export default function Card() {
                     </div>
                   ))}
                 </div>
+                
+                <button className="relative w-full overflow-hidden rounded-xl group">
+                  <span className="relative z-10 block text-white py-2 text-center">
+                    SEE DETAILS
+                  </span>
 
-                <button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2 rounded-xl transition">
-                  SEE DETAILS
+                  {/* Default Background */}
+                  <span className="absolute inset-0 bg-emerald-500"></span>
+
+                  {/* Hover Gradient Slide */}
+                  <span className="absolute inset-0 bg-linear-to-b from-emerald-500 to-gray-800 
+                     -translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  </span>
                 </button>
               </div>
             </SwiperSlide>

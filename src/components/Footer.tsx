@@ -31,8 +31,22 @@ export default function Footer() {
                 placeholder="EMAIL"
                 className="w-full lg:w-80 px-4 py-2 rounded-l-md bg-gray-300 text-black outline-none"
               />
-              <button className="bg-emerald-500 hover:bg-emerald-600 px-6 rounded-r-md">
-                Subscribe
+              <button className="relative overflow-hidden rounded-r-md group px-6">
+
+                {/* Text */}
+                <span className="relative z-10 text-white">
+                  Subscribe
+                </span>
+
+                {/* Default Background */}
+                <span className="absolute inset-0 bg-emerald-500"></span>
+
+                {/* Hover Gradient Slide */}
+                <span className="absolute inset-0 bg-linear-to-b from-emerald-500 to-gray-900
+    -translate-y-full group-hover:translate-y-0
+    transition-transform duration-500">
+                </span>
+
               </button>
             </div>
           </div>
@@ -46,9 +60,8 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <p className="text-gray-300 text-sm leading-6">
-              Inspired By The Vision Of Tesla, Inc.,
-               Our Platform Is Dedicated
-              To Delivering Cutting-Edge Electric Vehicles And Sustainable Energy Solutions.
+              Inspired By The Vision Of Tesla,Inc.,<br />Our Platform Is Dedicated
+              To Delivering<br />Cutting-Edge Electric Vehicles And<br />Sustainable Energy Solutions.
             </p>
           </div>
 
@@ -87,17 +100,34 @@ export default function Footer() {
           </p>
 
           {/* Social Icons */}
-          <div className="flex gap-4">
-            <div className="bg-white text-black p-2 rounded-full cursor-pointer">
-              <FaXTwitter size={14} />
-            </div>
-            <div className="bg-white text-black p-2 rounded-full cursor-pointer">
-              <FaFacebookF size={14} />
-            </div>
-            <div className="bg-white text-black p-2 rounded-full cursor-pointer">
-              <FaInstagram size={14} />
-            </div>
-          </div>
+           <div className="flex gap-4">
+
+      {/* X (Twitter) */}
+      <div className="bg-white text-black p-2 rounded-full cursor-pointer
+                      transition-all duration-300 ease-in-out
+                      hover:bg-black hover:text-white
+                      hover:scale-110 hover:shadow-xl hover:shadow-black/40">
+        <FaXTwitter size={14} />
+      </div>
+
+      {/* Facebook */}
+      <div className="bg-white text-black p-2 rounded-full cursor-pointer
+                      transition-all duration-300 ease-in-out
+                      hover:bg-blue-600 hover:text-white
+                      hover:scale-110 hover:shadow-xl hover:shadow-blue-500/40">
+        <FaFacebookF size={14} />
+      </div>
+
+      {/* Instagram */}
+      <div className="bg-white text-black p-2 rounded-full cursor-pointer
+                      transition-all duration-300 ease-in-out
+                      hover:bg-linear-to-r hover:from-pink-500 hover:to-yellow-500
+                      hover:text-white
+                      hover:scale-110 hover:shadow-xl hover:shadow-pink-500/40">
+        <FaInstagram size={14} />
+      </div>
+
+    </div>
 
         </div>
 

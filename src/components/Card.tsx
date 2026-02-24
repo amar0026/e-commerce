@@ -1,8 +1,8 @@
-import { 
-  FaTachometerAlt, 
-  FaGasPump, 
+import {
+  FaTachometerAlt,
+  FaGasPump,
   FaCogs,
-  FaCar 
+  FaCar
 } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,83 +19,83 @@ import logo from "../assets/teslalogo.png";
 
 export default function Card() {
   const cars = [
-    { 
+    {
       name: "Lamborghini Urus",
       year: "2024",
       type: "SUV",
       condition: "New",
       logo: logo,
-      image: car1, 
-      speed: "150", 
-      engine: "4.0L", 
-      fuel: "Petrol", 
-      gear: "Auto", 
-      price: "AED 1,150,000" 
+      image: car1,
+      speed: "150",
+      engine: "4.0L",
+      fuel: "Petrol",
+      gear: "Auto",
+      price: "AED 1,150,000"
     },
-    { 
+    {
       name: "Lamborghini Huracan",
       year: "2023",
       type: "Sports",
       condition: "New",
       logo: logo,
-      image: car2, 
-      speed: "180", 
-      engine: "5.2L", 
-      fuel: "Petrol", 
-      gear: "Auto", 
-      price: "AED 1,400,000" 
+      image: car2,
+      speed: "180",
+      engine: "5.2L",
+      fuel: "Petrol",
+      gear: "Auto",
+      price: "AED 1,400,000"
     },
-    { 
+    {
       name: "Lamborghini Aventador",
       year: "2022",
       type: "Supercar",
       condition: "Used",
       logo: logo,
-      image: car3, 
-      speed: "200", 
-      engine: "6.5L", 
-      fuel: "Petrol", 
-      gear: "Auto", 
-      price: "AED 1,900,000" 
+      image: car3,
+      speed: "200",
+      engine: "6.5L",
+      fuel: "Petrol",
+      gear: "Auto",
+      price: "AED 1,900,000"
     },
-    { 
+    {
       name: "Lamborghini Urus",
       year: "2024",
       type: "SUV",
       condition: "New",
       logo: logo,
-      image: car1, 
-      speed: "150", 
-      engine: "4.0L", 
-      fuel: "Petrol", 
-      gear: "Auto", 
-      price: "AED 1,150,000" 
+      image: car1,
+      speed: "150",
+      engine: "4.0L",
+      fuel: "Petrol",
+      gear: "Auto",
+      price: "AED 1,150,000"
     },
-    { 
+    {
       name: "Lamborghini Huracan",
       year: "2023",
       type: "Sports",
       condition: "New",
       logo: logo,
-      image: car2, 
-      speed: "180", 
-      engine: "5.2L", 
-      fuel: "Petrol", 
-      gear: "Auto", 
-      price: "AED 1,400,000" 
+      image: car2,
+      speed: "180",
+      engine: "5.2L",
+      fuel: "Petrol",
+      gear: "Auto",
+      price: "AED 1,400,000"
     },
-    { 
+    {
       name: "Lamborghini Aventador",
       year: "2022",
       type: "Supercar",
       condition: "Used",
       logo: logo,
-      image: car3, 
-      speed: "200", 
-      engine: "6.5L", 
-      fuel: "Petrol", 
-      gear: "Auto", 
-      price: "AED 1,900,000" 
+      image: car3,
+      speed: "200",
+      engine: "6.5L",
+      fuel: "Petrol",
+      gear: "Auto",
+      price: "AED 1,900,000"
     },
   ];
 
@@ -125,9 +125,9 @@ export default function Card() {
                 {/* Header Section */}
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-black p-3 rounded-xl">
-                    <img 
-                      src={car.logo} 
-                      alt="logo" 
+                    <img
+                      src={car.logo}
+                      alt="logo"
                       className="h-10 w-10 object-contain"
                     />
                   </div>
@@ -152,22 +152,22 @@ export default function Card() {
                 {/* Specs */}
                 <div className="bg-[#0b1220] text-white rounded-2xl p-6 flex justify-between items-center mb-4">
                   <div className="flex flex-col items-center">
-                    <FaTachometerAlt size={18}/>
+                    <FaTachometerAlt size={18} />
                     <p className="mt-2 text-sm">{car.speed} mph</p>
                   </div>
 
                   <div className="flex flex-col items-center">
-                    <FaCar size={18}/>
+                    <FaCar size={18} />
                     <p className="mt-2 text-sm">{car.engine}</p>
                   </div>
 
                   <div className="flex flex-col items-center">
-                    <FaGasPump size={18}/>
+                    <FaGasPump size={18} />
                     <p className="mt-2 text-sm">{car.fuel}</p>
                   </div>
 
                   <div className="flex flex-col items-center">
-                    <FaCogs size={18}/>
+                    <FaCogs size={18} />
                     <p className="mt-2 text-sm">{car.gear}</p>
                   </div>
                 </div>
@@ -177,8 +177,19 @@ export default function Card() {
                   {car.price}
                 </p>
 
-                <button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2 rounded-xl transition">
-                  SEE DETAILS
+                <button className="relative w-full overflow-hidden rounded-xl group">
+                  <span className="relative z-10 block text-white py-2 text-center">
+                    SEE DETAILS
+                  </span>
+
+                  {/* Default Background */}
+                  <span className="absolute inset-0 bg-emerald-500"></span>
+
+                  {/* Hover Gradient Slide */}
+                  <span className="absolute inset-0 bg-linear-to-b from-emerald-500 to-gray-800 
+    -translate-y-full group-hover:translate-y-0 
+    transition-transform duration-500">
+                  </span>
                 </button>
               </div>
             </SwiperSlide>
