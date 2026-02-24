@@ -3,6 +3,8 @@ import Card from "./components/Card";
 import solarvideo from "./assets/solarvideo.mp4";
 import Cardspage from "./components/Cardspage";
 import Footer from "./components/Footer";
+import heroVideo from "./assets/bannner.mp4";
+import untitled from "./assets/Untitled design.mp4";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 
@@ -26,29 +28,36 @@ export default function App() {
     loop={true}
     className="w-full h-full"
   >
-    <SwiperSlide>
-      <img
-        src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?q=80&w=1974"
-        alt="car1"
-        className="w-full h-full object-cover opacity-40"
-      />
-    </SwiperSlide>
+   <SwiperSlide>
+ <video
+    className="w-full h-full object-cover opacity-40"
+    autoPlay
+    loop
+    muted
+    playsInline
+  >
+    <source src={untitled} type="video/mp4" />
+  </video>
+</SwiperSlide>
 
-    <SwiperSlide>
-      <img
-        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1974"
-        alt="car2"
-        className="w-full h-full object-cover opacity-40"
-      />
-    </SwiperSlide>
-
-    <SwiperSlide>
+   <SwiperSlide>
+  <video
+    className="w-full h-full object-cover opacity-40"
+    autoPlay
+    loop
+    muted
+    playsInline
+  >
+    <source src={heroVideo} type="video/mp4" />
+  </video>
+</SwiperSlide>
+    {/* <SwiperSlide>
       <img
         src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1974"
         alt="car3"
         className="w-full h-full object-cover opacity-40"
       />
-    </SwiperSlide>
+    </SwiperSlide> */}
   </Swiper>
 </div>
 

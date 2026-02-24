@@ -10,11 +10,9 @@ import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
 
-// You'll need to add these images to your public folder or src/assets
-// For now, let's use placeholder images
-import car1 from "../assets/images (15).jpg";
-import car2 from "../assets/images (14).jpg";
-import car3 from "../assets/images (16).jpg";
+import car1 from "../assets/bannervideo.mp4";
+import car2 from "../assets/Untitled.mp4";
+import car3 from "../assets/videodesign.mp4";
 import logo from "../assets/teslalogo.png";
 
 export default function Card() {
@@ -110,19 +108,21 @@ export default function Card() {
           autoplay={{
             delay: 3000,
             disableOnInteraction: false,
-            pauseOnMouseEnter: true, // This stops autoplay on hover
+            pauseOnMouseEnter: true,
           }}
           breakpoints={{
             0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          className="mySwiper"
         >
           {cars.map((car, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-2xl shadow-md p-4 hover:shadow-xl hover:-translate-y-2 transition duration-300">
-                {/* Header Section */}
+              <div className="group bg-white rounded-2xl shadow-md p-4 
+                              hover:shadow-xl hover:-translate-y-2 
+                              transition duration-300">
+
+                {/* Header */}
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-black p-3 rounded-xl">
                     <img
@@ -142,13 +142,18 @@ export default function Card() {
                   </div>
                 </div>
 
-                {/* Car Image */}
-                <img
-                  src={car.image}
-                  className="rounded-xl mb-4 w-full h-56 object-cover"
-                  alt="car"
-                />
-
+                <div className="overflow-hidden rounded-xl mb-4">
+  <video
+    src={car.image}
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="w-full h-56 object-cover
+               transition-transform duration-500 ease-in-out
+               group-hover:scale-110"
+  />
+</div>
                 {/* Specs */}
                 <div className="bg-[#0b1220] text-white rounded-2xl p-6 flex justify-between items-center mb-4">
                   <div className="flex flex-col items-center">
@@ -177,20 +182,20 @@ export default function Card() {
                   {car.price}
                 </p>
 
+                {/* Button */}
                 <button className="relative w-full overflow-hidden rounded-xl group">
                   <span className="relative z-10 block text-white py-2 text-center">
                     SEE DETAILS
                   </span>
 
-                  {/* Default Background */}
                   <span className="absolute inset-0 bg-emerald-500"></span>
 
-                  {/* Hover Gradient Slide */}
                   <span className="absolute inset-0 bg-linear-to-b from-emerald-500 to-gray-800 
-    -translate-y-full group-hover:translate-y-0 
-    transition-transform duration-500">
+                    -translate-y-full group-hover:translate-y-0 
+                    transition-transform duration-500">
                   </span>
                 </button>
+
               </div>
             </SwiperSlide>
           ))}
